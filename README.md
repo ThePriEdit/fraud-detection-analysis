@@ -143,39 +143,26 @@ A composite rule-based score (0–100) is assigned to every transaction:
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Run (SQLite - Recommended)
 
-### Option A — SQLite (quickest, no install)
-```bash
-# Install sqlite3 (pre-installed on Mac/Linux)
-sqlite3 fraud_detection.db
+This project was developed and tested using SQLite.
 
-.mode csv
-.import data/transactions.csv transactions
-.read sql/01_schema_and_load.sql
-.read sql/02_exploratory_analysis.sql
-.read sql/03_fraud_detection_queries.sql
-.read sql/04_risk_scoring_model.sql
-```
+### Steps:
 
-### Option B — MySQL
-```bash
-mysql -u root -p < sql/01_schema_and_load.sql
-# Update LOAD DATA path in schema file to match your local path
-mysql -u root -p fraud_db < sql/02_exploratory_analysis.sql
-```
+1. Open SQLite or DB Browser for SQLite
+2. Import the dataset:
 
-### Option C — PostgreSQL
-```bash
-psql -U postgres -d fraud_db -f sql/01_schema_and_load.sql
-# Replace HOUR() with EXTRACT(HOUR FROM ...) as noted in comments
-psql -U postgres -d fraud_db -f sql/03_fraud_detection_queries.sql
-```
+   * Load `data/transactions.csv` as a table named `transactions`
+3. Run SQL files in order:
 
-### Option D — Online (no setup)
-1. Go to [db-fiddle.com](https://www.db-fiddle.com) or [sqliteonline.com](https://sqliteonline.com)
-2. Upload `data/transactions.csv`
-3. Paste and run the SQL files
+   * `01_schema_and_load.sql`
+   * `02_exploratory_analysis.sql`
+   * `03_fraud_detection_queries.sql`
+   * `04_risk_scoring_model.sql`
+
+### Alternative:
+
+You can also run this project using online tools like SQLite Online by uploading the dataset and executing the queries.
 
 ---
 

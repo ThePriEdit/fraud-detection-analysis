@@ -201,7 +201,27 @@ psql -U postgres -d fraud_db -f sql/03_fraud_detection_queries.sql
 5. **ML next step** — Train an Isolation Forest or XGBoost classifier on flagged vs normal data
 
 ---
+## 🧠 My Approach
 
+I built this project to simulate how a fraud analyst would detect suspicious transactions using SQL.
+
+Instead of relying on machine learning, I focused on rule-based detection:
+- Identifying unusual transaction spikes
+- Detecting abnormal transaction frequency
+- Flagging risky locations and time patterns
+
+This helped me understand how real-world fraud detection systems prioritise risk before applying advanced models.
+
+## ⚠️ Limitations
+- Rule-based approach may generate false positives
+- Does not adapt automatically to new fraud patterns
+- Requires tuning of thresholds (e.g., 3× average)
+
+## 🔄 Next Steps
+- Apply machine learning (Isolation Forest / XGBoost)
+- Add real-time streaming detection
+
+  
 ## 🛠️ Tech Stack
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%20%7C%20PostgreSQL%20%7C%20SQLite-blue)
